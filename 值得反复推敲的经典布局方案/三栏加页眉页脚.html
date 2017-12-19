@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        #header {
+            height: 100px;
+            background-color: #66ccff;
+        }
+
+        #footer {
+            height: 80px;
+            background-color: #99ccff;
+        }
+
+        #main {
+            height: 500px;
+            background-color: #ffcccc;
+        }
+
+        #middle {
+            width: 100%;
+            float: left;
+            background-color: #ffcccc;
+        }
+
+        #left {
+            width: 200px;
+            float: left;
+            height: 500px;
+            background-color: #ccffff;
+            margin-left: -100%;
+        }
+
+        #right {
+            width: 200px;
+            float: left;
+            height: 500px;
+            background-color: #ccffff;
+            margin-left: -200px;
+        }
+
+        .content {
+            height: 500px;
+            margin: 0 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="wrap" id="header"></header>
+    <section class="wrap" id="main">
+        <section id="middle">
+            <div class="content"></div>
+        </section>
+        <aside id="left"></aside>
+        <aside id="right"></aside>
+    </section>
+    <footer class="wrap" id="footer"></footer>
+</body>
+
+</html>
