@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>健身统计</title>
+    <link rel="stylesheet" href="./css/self.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main" class="main"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        let months = [];
+        for (let i = 1; i <= 12; i++) {
+            months.push(i);
+        }       
+        let tmp2016 = [0, 0, 0, 4, 9, 4, 7, 8, 8, 4, 4, 6];
+        let tmp2017 = [1, 4, 5, 5, 5, 6, 7, 3, 1, 4, 8, 8];
+        option = {
+            title: {
+                text: '2016-2017健身统计',
+                subtext: '2016年4月办卡',
+                left:'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['2016年', '2017年'],
+                right:20
+            },
+            xAxis: {
+                name: '月',
+                nameLocation: 'end',
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45
+                },
+                data: months
+            },
+            yAxis: {
+                name: '次',
+                nameLocation: 'end'
+            },
+            series: [{
+                    name: '2016年',
+                    type: 'line',
+                    data: tmp2016,
+                    markPoint: {
+                        data: [{
+                                type: 'max',
+                                name: '最大值'
+                            },
+                            {
+                                type: 'min',
+                                name: '最小值'
+                            }
+                        ]
+                    },
+                    markLine: {
+                        data: [{
+                            type: 'average',
+                            name: '平均值'
+                        }]
+                    }
+                },
+                {
+                    name: '2017年',
+                    type: 'line',
+                    data: tmp2017,
+                    markPoint: {
+                        data: [{
+                                type: 'max',
+                                name: '最大值'
+                            },
+                            {
+                                type: 'min',
+                                name: '最小值'
+                            }
+                        ]
+                    },
+                    markLine: {
+                        data: [{
+                            type: 'average',
+                            name: '平均值'
+                        }]
+                    }
+                }
+
+            ]
+        };
+
+        // 相当于 document.ready，{代码}
+        $(function () {
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        })
+    </script>
+</body>
+
+</html>
